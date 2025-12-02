@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get: 4.7.3
+  dotted_line: 3.2.3
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +19,17 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/fonts/
+    - assets/video/
+
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/robotoNZXCWZ.ttf
+    - family: Abel
+      fonts:
+        - asset: assets/fonts/robotoNZXCWZ.ttf
