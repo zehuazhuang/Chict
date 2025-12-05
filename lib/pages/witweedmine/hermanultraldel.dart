@@ -1,6 +1,9 @@
 import 'dart:math' as math;
-
+import 'package:bot_toast/bot_toast.dart';
+import 'package:chict/cuermamaxitmodel.dart';
+import 'package:chict/dicaaneroutes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HermanuLtralDel extends StatefulWidget {
   const HermanuLtralDel({super.key});
@@ -86,46 +89,96 @@ class _HermanuLtralDel extends State<HermanuLtralDel> {
                         fontSize: 18,
                         fontWeight: FontWeight.w400,
                         color: Color.fromRGBO(49, 16, 61, 1),
+                        decoration: TextDecoration.none,
                       ),
                     ),
                     Padding(padding: EdgeInsetsGeometry.only(top: 24)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: 102,
-                          height: 42,
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Cancel",
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Color.fromRGBO(49, 16, 61, 1),
+                        GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Container(
+                            width: 102,
+                            height: 42,
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Cancel",
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: Color.fromRGBO(49, 16, 61, 1),
+                                decoration: TextDecoration.none,
+                              ),
                             ),
                           ),
                         ),
                         SizedBox(width: 20),
-                        Container(
-                          width: 102,
-                          height: 42,
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(49, 16, 61, 1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Sure",
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Color.fromRGBO(255, 255, 255, 1),
+
+                        GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () async {
+                            BotToast.showLoading();
+                            await Future.delayed(
+                              const Duration(milliseconds: 700),
+                            );
+                            BotToast.closeAllLoading();
+
+                            SkiINECkrt().woHEarloZb = 0;
+                            Get.offAllNamed(ChictRoutes.jumpsuitInit);
+
+                            if (SkiINECkrt().ckesKRaprtLid == 7) {
+                              SkiINECkrt().tuHOobeUs[6] = {
+                                "usMInieUID": 7,
+                                "sweDRsatEMAIL": "",
+                                "fsqUAreurPASW": "",
+                                "coaBEltedNAME": "Chict",
+                                "atiCHiffoAVATAR":
+                                    "assets/images/ChictLogo.png",
+                                "panCOattsGOOD": 0,
+                                "fauDEdxFOLLOW": [],
+                                "soorGAnzftFANS": [],
+                                "ctohEMpapBOLHEI": [],
+                              };
+                            } else {
+                              int teSHAdex = SkiINECkrt().tuHOobeUs.indexWhere(
+                                (e) =>
+                                    e["usMInieUID"] ==
+                                    SkiINECkrt().ckesKRaprtLid,
+                              );
+
+                              SkiINECkrt().tuHOobeUs.removeAt(teSHAdex);
+                            }
+
+                            SkiINECkrt().tuHOobeUs = List.from(
+                              SkiINECkrt().tuHOobeUs,
+                            );
+                          },
+                          child: Container(
+                            width: 102,
+                            height: 42,
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(49, 16, 61, 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Sure",
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                decoration: TextDecoration.none,
+                              ),
                             ),
                           ),
                         ),

@@ -1,5 +1,8 @@
 import 'dart:math' as math;
 
+import 'package:bot_toast/bot_toast.dart';
+import 'package:chict/cuermamaxitmodel.dart';
+import 'package:chict/dicaaneroutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -239,86 +242,137 @@ class _WaistCOatSignup extends State<WaistCOatSignup> {
                             Padding(padding: EdgeInsetsGeometry.only(top: 133)),
                             Align(
                               alignment: AlignmentDirectional(0, 0),
-                              child: Container(
-                                width: 260,
-                                height: 63,
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(205, 150, 252, 1),
-                                  borderRadius: BorderRadius.circular(40),
-                                  border: Border.all(
-                                    color: Color.fromRGBO(255, 255, 255, 1),
-                                    width: 4,
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Color.fromRGBO(113, 81, 140, 1),
-                                      spreadRadius: 0,
-                                      blurRadius: 0,
-                                      offset: Offset(0, 3),
-                                    ),
-                                  ],
-                                ),
-                                alignment: Alignment.center,
+                              child: GestureDetector(
+                                behavior: HitTestBehavior.translucent,
+                                onTap: () async {
+                                  if (_blOUSeEm.text == "" ||
+                                      _corSETsAg.text == "" ||
+                                      _ribBEDsPs.text == "") {
+                                    BotToast.showText(
+                                      text:
+                                          "Please complete your email address and password.",
+                                    );
+                                    return;
+                                  }
+
+                                  if(_corSETsAg.text!=_ribBEDsPs.text){
+                                      BotToast.showText(
+                                      text:
+                                          "The two passwords did not match.",
+                                    );
+                                    return;
+                                  }
+
+                                   BotToast.showLoading();
+                                await Future.delayed(const Duration(milliseconds: 1200));
+                                BotToast.closeAllLoading();
+
+                                  SkiINECkrt().tuHOobeUs.add({
+                                    "usMInieUID": SkiINECkrt().coYSIshCID,
+                                    "sweDRsatEMAIL": _blOUSeEm.text,
+                                    "fsqUAreurPASW": _ribBEDsPs.text,
+                                    "coaBEltedNAME": "User${SkiINECkrt().coYSIshCID}",
+                                    "atiCHiffoAVATAR":
+                                        "assets/images/ChictLogo.png",
+                                    "panCOattsGOOD": 0,
+                                    "fauDEdxFOLLOW": [],
+                                    "soorGAnzftFANS": [],
+                                    "ctohEMpapBOLHEI": [],
+                                  });
+
+                                  SkiINECkrt().ckesKRaprtLid = SkiINECkrt().coYSIshCID;
+
+                                  SkiINECkrt().tuHOobeUs = List.from(SkiINECkrt().tuHOobeUs);
+
+                                   Get.toNamed(ChictRoutes.tovestpHome);
+
+
+
+
+
+                                  SkiINECkrt().coYSIshCID += 1;
+                                },
                                 child: Container(
-                                  width: 221.09,
-                                  height: 39,
+                                  width: 260,
+                                  height: 63,
                                   decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        Color.fromRGBO(255, 255, 255, .2),
-                                        Color.fromRGBO(255, 255, 255, 0),
-                                      ],
-                                      begin: Alignment(0, -1),
-                                      end: Alignment(0, 1),
+                                    color: Color.fromRGBO(205, 150, 252, 1),
+                                    borderRadius: BorderRadius.circular(40),
+                                    border: Border.all(
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      width: 4,
                                     ),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Stack(
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: Image(
-                                          image: AssetImage(
-                                            "assets/images/ZXCWQUH.png",
-                                          ),
-                                          width: 24.81,
-                                          height: 16.38,
-                                        ),
-                                      ),
-
-                                      Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Transform.rotate(
-                                          angle: -26.95 * (math.pi / 180),
-                                          child: Image(
-                                            image: AssetImage(
-                                              "assets/images/XZNCUIW.png",
-                                            ),
-                                            width: 21.1,
-                                            height: 5.49,
-                                          ),
-                                        ),
-                                      ),
-
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Text(
-                                          "Sign up",
-                                          style: TextStyle(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w700,
-                                            color: Color.fromRGBO(
-                                              49,
-                                              16,
-                                              61,
-                                              1,
-                                            ),
-                                          ),
-                                        ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(113, 81, 140, 1),
+                                        spreadRadius: 0,
+                                        blurRadius: 0,
+                                        offset: Offset(0, 3),
                                       ),
                                     ],
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Container(
+                                    width: 221.09,
+                                    height: 39,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color.fromRGBO(255, 255, 255, .2),
+                                          Color.fromRGBO(255, 255, 255, 0),
+                                        ],
+                                        begin: Alignment(0, -1),
+                                        end: Alignment(0, 1),
+                                      ),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    alignment: Alignment.center,
+                                    child: Stack(
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.topLeft,
+                                          child: Image(
+                                            image: AssetImage(
+                                              "assets/images/ZXCWQUH.png",
+                                            ),
+                                            width: 24.81,
+                                            height: 16.38,
+                                          ),
+                                        ),
+
+                                        Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: Transform.rotate(
+                                            angle: -26.95 * (math.pi / 180),
+                                            child: Image(
+                                              image: AssetImage(
+                                                "assets/images/XZNCUIW.png",
+                                              ),
+                                              width: 21.1,
+                                              height: 5.49,
+                                            ),
+                                          ),
+                                        ),
+
+                                        Align(
+                                          alignment: AlignmentDirectional(0, 0),
+                                          child: Text(
+                                            "Sign up",
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w700,
+                                              color: Color.fromRGBO(
+                                                49,
+                                                16,
+                                                61,
+                                                1,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),

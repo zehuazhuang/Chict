@@ -1,6 +1,9 @@
 import 'dart:math' as math;
 
+import 'package:chict/cuermamaxitmodel.dart';
+import 'package:chict/pages/joggersmes/asymmetricalb.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ColbloUsedSpen extends StatefulWidget {
   const ColbloUsedSpen({super.key});
@@ -83,46 +86,89 @@ class _ColbloUsedSpen extends State<ColbloUsedSpen> {
                         fontSize: 18,
                         fontWeight: FontWeight.w400,
                         color: Color.fromRGBO(49, 16, 61, 1),
+                        decoration: TextDecoration.none,
                       ),
                     ),
                     Padding(padding: EdgeInsetsGeometry.only(top: 24)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: 102,
-                          height: 42,
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Cancel",
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Color.fromRGBO(49, 16, 61, 1),
+                        GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Container(
+                            width: 102,
+                            height: 42,
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Cancel",
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: Color.fromRGBO(49, 16, 61, 1),
+                                decoration: TextDecoration.none,
+                              ),
                             ),
                           ),
                         ),
                         SizedBox(width: 20),
-                        Container(
-                          width: 102,
-                          height: 42,
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(49, 16, 61, 1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Sure",
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Color.fromRGBO(255, 255, 255, 1),
+                        GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () {
+                          
+                            
+                            final higwdZMXGOOD = SkiINECkrt().tuHOobeUs
+                                .firstWhere(
+                                  (e) =>
+                                      e["usMInieUID"] ==
+                                      SkiINECkrt().ckesKRaprtLid,
+                                )["panCOattsGOOD"];
+
+                            if (higwdZMXGOOD >= 200) {
+                              int uyTREwsxEDC = SkiINECkrt().tuHOobeUs
+                                  .indexWhere(
+                                    (e) =>
+                                        e["usMInieUID"] ==
+                                        SkiINECkrt().ckesKRaprtLid,
+                                  );
+
+                              SkiINECkrt()
+                                      .tuHOobeUs[uyTREwsxEDC]["panCOattsGOOD"] -=
+                                  200;
+
+                              SkiINECkrt().tuHOobeUs = List.from(
+                                SkiINECkrt().tuHOobeUs,
+                              );
+
+                              Get.back(result: true);
+                            } else {
+                              Get.dialog(AsymmEtricaLb());
+                            }
+                          },
+                          child: Container(
+                            width: 102,
+                            height: 42,
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(49, 16, 61, 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Sure",
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                decoration: TextDecoration.none,
+                              ),
                             ),
                           ),
                         ),

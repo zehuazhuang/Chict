@@ -1,3 +1,4 @@
+import 'package:chict/cuermamaxitmodel.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,6 +23,9 @@ class _StabiliTywoiLishi extends State<StabiliTywoiLishi> {
 
   @override
   Widget build(BuildContext context) {
+    final fOTculTD = SkiINECkrt().plEAtedChuand
+        .where((e) => e["jeSTretcrUID"] == SkiINECkrt().ckesKRaprtLid)
+        .toList().reversed.toList();
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
@@ -75,7 +79,8 @@ class _StabiliTywoiLishi extends State<StabiliTywoiLishi> {
                     Expanded(
                       child: ListView(
                         padding: EdgeInsets.all(0),
-                        children: List.generate(3, (index) {
+                        children: List.generate(fOTculTD.length, (index) {
+                          final olEGhItem = fOTculTD[index];
                           return Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -122,7 +127,11 @@ class _StabiliTywoiLishi extends State<StabiliTywoiLishi> {
 
                                           Expanded(
                                             child: Text(
-                                              "November 18th, 2025",
+                                              SkiINECkrt().quXenTriM(
+                                                DateTime.parse(
+                                                  olEGhItem["pleiereaDATE"],
+                                                ),
+                                              ),
                                               style: TextStyle(
                                                 fontFamily: 'Roboto',
                                                 fontSize: 12,
@@ -157,7 +166,7 @@ class _StabiliTywoiLishi extends State<StabiliTywoiLishi> {
                                             clipBehavior: Clip.antiAlias,
                                             elevation: 1,
                                             child: Image.asset(
-                                              "assets/images/ZBCYUQ1.png",
+                                              olEGhItem["raiNCmcoWEATHER"],
                                               width: 20,
                                               height: 20,
                                               fit: BoxFit.cover,
@@ -193,7 +202,8 @@ class _StabiliTywoiLishi extends State<StabiliTywoiLishi> {
                                             20,
                                           ),
                                           child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               ClipRRect(
                                                 borderRadius:
@@ -201,7 +211,7 @@ class _StabiliTywoiLishi extends State<StabiliTywoiLishi> {
                                                       16,
                                                     ),
                                                 child: Image.asset(
-                                                  "assets/images/ChictLogo.png",
+                                                  olEGhItem["apARkatPICTURE"],
                                                   width: double.infinity,
                                                   height: 233,
                                                   fit: BoxFit.cover,
@@ -214,7 +224,7 @@ class _StabiliTywoiLishi extends State<StabiliTywoiLishi> {
                                                     ),
                                               ),
                                               Text(
-                                                "Today, I wore a beige knitted cardigan I bought last year. I paired it with a light grey slim-fit T-shirt and a pair of high-waisted straight-leg jeans.",
+                                                olEGhItem["oaSToraTENT"],
                                                 style: TextStyle(
                                                   fontFamily: 'Abel',
                                                   fontSize: 14,

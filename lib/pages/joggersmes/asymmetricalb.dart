@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 
+import 'package:chict/dicaaneroutes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AsymmEtricaLb extends StatefulWidget {
   const AsymmEtricaLb({super.key});
@@ -83,46 +85,62 @@ class _AsymmEtricaLb extends State<AsymmEtricaLb> {
                         fontSize: 18,
                         fontWeight: FontWeight.w400,
                         color: Color.fromRGBO(49, 16, 61, 1),
+                        decoration: TextDecoration.none,
                       ),
                     ),
                     Padding(padding: EdgeInsetsGeometry.only(top: 24)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: 102,
-                          height: 42,
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Cancel",
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Color.fromRGBO(49, 16, 61, 1),
+                        GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Container(
+                            width: 102,
+                            height: 42,
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Cancel",
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: Color.fromRGBO(49, 16, 61, 1),
+                                decoration: TextDecoration.none,
+                              ),
                             ),
                           ),
                         ),
                         SizedBox(width: 20),
-                        Container(
-                          width: 102,
-                          height: 42,
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(49, 16, 61, 1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Recharge",
-                            style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Color.fromRGBO(255, 255, 255, 1),
+                        GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () {
+                            Get.back();
+                            Get.toNamed(ChictRoutes.blousonCoi);
+                          },
+                          child: Container(
+                            width: 102,
+                            height: 42,
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(49, 16, 61, 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Recharge",
+                              style: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                decoration: TextDecoration.none,
+                              ),
                             ),
                           ),
                         ),

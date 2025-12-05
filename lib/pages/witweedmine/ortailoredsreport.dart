@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +12,18 @@ class OrtailoREdsReport extends StatefulWidget {
 }
 
 class _OrtailoREdsReport extends State<OrtailoREdsReport> {
+  List<String> thSTUrili = [
+    "Vulgar pornographic content",
+    "Plagiarized and infringing content",
+    "Discriminatory remarks",
+    "Personal attack",
+    "Harassment and entanglement",
+    "Bloody and violent content",
+    "Others",
+  ];
+
+  int seLEDEX = -1;
+
   @override
   void initState() {
     super.initState();
@@ -87,61 +100,80 @@ class _OrtailoREdsReport extends State<OrtailoREdsReport> {
                       Container(height: 21),
                       Flex(
                         direction: Axis.vertical,
-                        children: List.generate(7, (index) {
+                        children: List.generate(thSTUrili.length, (index) {
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 20),
-                            child: Container(
-                              width: double.infinity,
-                              height: 55,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color.fromRGBO(245, 195, 254, 1),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
+                            child: GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () {
+                                setState(() {
+                                  seLEDEX = index;
+                                });
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 55,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Color.fromRGBO(245, 195, 254, 1),
                                 ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Vulgar pornographic content",
-                                      style: TextStyle(
-                                        fontFamily: 'Abel',
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color.fromRGBO(51, 51, 51, 1),
-                                      ),
-                                    ),
-
-                                    Container(
-                                      width: 24,
-                                      height: 24,
-                                      decoration: BoxDecoration(
-                                        color: Color.fromRGBO(
-                                          255,
-                                          255,
-                                          255,
-                                          .5,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        thSTUrili[index],
+                                        style: TextStyle(
+                                          fontFamily: 'Abel',
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color.fromRGBO(51, 51, 51, 1),
                                         ),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color.fromRGBO(
-                                              255,
-                                              255,
-                                              255,
-                                              .15,
-                                            ),
-                                            spreadRadius: 0,
-                                            blurRadius: 3,
-                                            offset: Offset(2, 2),
-                                          ),
-                                        ],
-                                        borderRadius: BorderRadius.circular(4)
                                       ),
-                                    ),
-                                  ],
+
+                                      Container(
+                                        width: 24,
+                                        height: 24,
+                                        decoration: BoxDecoration(
+                                          color: Color.fromRGBO(
+                                            255,
+                                            255,
+                                            255,
+                                            .5,
+                                          ),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Color.fromRGBO(
+                                                255,
+                                                255,
+                                                255,
+                                                .15,
+                                              ),
+                                              spreadRadius: 0,
+                                              blurRadius: 3,
+                                              offset: Offset(2, 2),
+                                            ),
+                                          ],
+                                          borderRadius: BorderRadius.circular(
+                                            4,
+                                          ),
+                                        ),
+                                        alignment: Alignment(0, 0),
+                                        child: Visibility(
+                                          visible: seLEDEX == index,
+                                          child: Image.asset(
+                                            "assets/images/NFIUQWDH.png",
+                                            width: 14,
+                                            height: 12,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -152,81 +184,104 @@ class _OrtailoREdsReport extends State<OrtailoREdsReport> {
                       Padding(padding: EdgeInsetsGeometry.only(top: 25)),
                       Align(
                         alignment: AlignmentDirectional(0, 0),
-                        child: Container(
-                          width: 201,
-                          height: 63,
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(205, 150, 252, 1),
-                            borderRadius: BorderRadius.circular(40),
-                            border: Border.all(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              width: 4,
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(113, 81, 140, 1),
-                                spreadRadius: 0,
-                                blurRadius: 0,
-                                offset: Offset(0, 3),
-                              ),
-                            ],
-                          ),
-                          alignment: Alignment.center,
+                        child: GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () async {
+
+                            if(seLEDEX==-1){
+                              BotToast.showText(text: "Please select a type");
+                              return;
+                            }
+
+
+                            BotToast.showLoading();
+                            Future.delayed(
+                              const Duration(milliseconds: 1329),
+                              () {
+                                BotToast.closeAllLoading();
+                                Get.back();
+                                BotToast.showText(
+                                  text: "Thank you for your feedback.",
+                                );
+                              },
+                            );
+                          },
                           child: Container(
-                            width: 170,
-                            height: 39,
+                            width: 201,
+                            height: 63,
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromRGBO(255, 255, 255, .2),
-                                  Color.fromRGBO(255, 255, 255, 0),
-                                ],
-                                begin: Alignment(0, -1),
-                                end: Alignment(0, 1),
+                              color: Color.fromRGBO(205, 150, 252, 1),
+                              borderRadius: BorderRadius.circular(40),
+                              border: Border.all(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                width: 4,
                               ),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            alignment: Alignment.center,
-                            child: Stack(
-                              children: [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Image(
-                                    image: AssetImage(
-                                      "assets/images/ZXCWQUH.png",
-                                    ),
-                                    width: 24.81,
-                                    height: 16.38,
-                                  ),
-                                ),
-
-                                Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: Transform.rotate(
-                                    angle: -26.95 * (math.pi / 180),
-                                    child: Image(
-                                      image: AssetImage(
-                                        "assets/images/XZNCUIW.png",
-                                      ),
-                                      width: 21.1,
-                                      height: 5.49,
-                                    ),
-                                  ),
-                                ),
-
-                                Align(
-                                  alignment: AlignmentDirectional(0, 0),
-                                  child: Text(
-                                    "Upload",
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w700,
-                                      color: Color.fromRGBO(255, 255, 255, 1),
-                                    ),
-                                  ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(113, 81, 140, 1),
+                                  spreadRadius: 0,
+                                  blurRadius: 0,
+                                  offset: Offset(0, 3),
                                 ),
                               ],
+                            ),
+                            alignment: Alignment.center,
+                            child: Container(
+                              width: 170,
+                              height: 39,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color.fromRGBO(255, 255, 255, .2),
+                                    Color.fromRGBO(255, 255, 255, 0),
+                                  ],
+                                  begin: Alignment(0, -1),
+                                  end: Alignment(0, 1),
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              alignment: Alignment.center,
+                              child: Stack(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Image(
+                                      image: AssetImage(
+                                        "assets/images/ZXCWQUH.png",
+                                      ),
+                                      width: 24.81,
+                                      height: 16.38,
+                                    ),
+                                  ),
+
+                                  Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: Transform.rotate(
+                                      angle: -26.95 * (math.pi / 180),
+                                      child: Image(
+                                        image: AssetImage(
+                                          "assets/images/XZNCUIW.png",
+                                        ),
+                                        width: 21.1,
+                                        height: 5.49,
+                                      ),
+                                    ),
+                                  ),
+
+                                  Align(
+                                    alignment: AlignmentDirectional(0, 0),
+                                    child: Text(
+                                      "Upload",
+                                      style: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w700,
+                                        color: Color.fromRGBO(255, 255, 255, 1),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

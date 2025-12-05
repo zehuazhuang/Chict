@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:chict/canppedvabuy.dart';
+import 'package:chict/cuermamaxitmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,18 +13,30 @@ class LomocknEckwCoi extends StatefulWidget {
 }
 
 class _LomocknEckwCoi extends State<LomocknEckwCoi> {
+  Timer? _tNCYUQA;
   @override
   void initState() {
     super.initState();
+
+    _tNCYUQA = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (!mounted) return;
+      setState(() {
+    
+      });
+    });
   }
 
   @override
   void dispose() {
+    _tNCYUQA?.cancel();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final cARdigNUM = SkiINECkrt().tuHOobeUs.firstWhere(
+      (e) => e["usMInieUID"] == SkiINECkrt().ckesKRaprtLid,
+    )["panCOattsGOOD"];
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
@@ -134,7 +150,7 @@ class _LomocknEckwCoi extends State<LomocknEckwCoi> {
                                             ),
                                           ),
                                           Text(
-                                            "2000",
+                                            "$cARdigNUM",
                                             style: TextStyle(
                                               fontFamily: 'Roboto',
                                               fontSize: 14,
@@ -151,85 +167,121 @@ class _LomocknEckwCoi extends State<LomocknEckwCoi> {
                                       ),
                                     ),
                                   ),
-                        
+
                                   Padding(
                                     padding: EdgeInsetsGeometry.only(top: 43),
                                   ),
-                                  Wrap(
-                                    spacing: 7,
-                                    runSpacing: 15,
-                                    children: List.generate(10, (index) {
-                                      return Container(
-                                        width: 98,
-                                        height: 117,
-                                        decoration: BoxDecoration(
-                                          color: Color.fromRGBO(0, 0, 0, .2),
-                                          borderRadius: BorderRadius.circular(20),
-                                        ),
-                                        child: Flex(
-                                          direction: Axis.vertical,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            PhysicalModel(
-                                              color: Colors.transparent,
-                                              clipBehavior: Clip.antiAlias,
-                                              child: Image.asset(
-                                                "assets/images/NCIQSJ.png",
-                                                width: 32,
-                                                height: 32,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                top: 2,
-                                                bottom: 6,
-                                              ),
-                                              child: Text(
-                                                "800",
-                                                style: TextStyle(
-                                                  fontFamily: 'Roboto',
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w700,
-                                                  color: Color.fromRGBO(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    1,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                              width: 79,
-                                              height: 31,
+                                  Builder(
+                                    builder: (context) {
+                                      final ayBEdeWALL =
+                                          SkiINECkrt().poCKetWALL;
+                                      return Wrap(
+                                        spacing: 7,
+                                        runSpacing: 15,
+                                        children: List.generate(ayBEdeWALL.length, (
+                                          index,
+                                        ) {
+                                          final bIAsItem = ayBEdeWALL[index];
+
+                                          return GestureDetector(
+                                            behavior:
+                                                HitTestBehavior.translucent,
+                                            onTap: () {
+                                              NcdXCIUQWIUaaQW.zxQWerPPLo
+                                                  .ytrEDCfvbNHYbyID(
+                                                    bIAsItem["leMEshyJIAN"],
+                                                  );
+                                            },
+                                            child: Container(
+                                              width: 98,
+                                              height: 117,
                                               decoration: BoxDecoration(
                                                 color: Color.fromRGBO(
-                                                  255,
-                                                  255,
-                                                  255,
-                                                  1,
+                                                  0,
+                                                  0,
+                                                  0,
+                                                  .2,
                                                 ),
-                                                borderRadius: BorderRadius.circular(
-                                                  30,
-                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
                                               ),
-                                              alignment: Alignment(0, 0),
-                                              child: Text(
-                                                "\$1.99",
-                                                style: TextStyle(
-                                                  fontFamily: 'Abel',
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: Color.fromRGBO(0, 0, 0, 1),
-                                                ),
+                                              child: Flex(
+                                                direction: Axis.vertical,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  PhysicalModel(
+                                                    color: Colors.transparent,
+                                                    clipBehavior:
+                                                        Clip.antiAlias,
+                                                    child: Image.asset(
+                                                      "assets/images/NCIQSJ.png",
+                                                      width: 32,
+                                                      height: 32,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                          top: 2,
+                                                          bottom: 6,
+                                                        ),
+                                                    child: Text(
+                                                      "${bIAsItem["poANdalCOUNT"]}",
+                                                      style: TextStyle(
+                                                        fontFamily: 'Roboto',
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        color: Color.fromRGBO(
+                                                          255,
+                                                          255,
+                                                          255,
+                                                          1,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: 79,
+                                                    height: 31,
+                                                    decoration: BoxDecoration(
+                                                      color: Color.fromRGBO(
+                                                        255,
+                                                        255,
+                                                        255,
+                                                        1,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            30,
+                                                          ),
+                                                    ),
+                                                    alignment: Alignment(0, 0),
+                                                    child: Text(
+                                                      "\$${bIAsItem["ocOLlarpMEI"]}",
+                                                      style: TextStyle(
+                                                        fontFamily: 'Abel',
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        color: Color.fromRGBO(
+                                                          0,
+                                                          0,
+                                                          0,
+                                                          1,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          );
+                                        }),
                                       );
-                                    }),
+                                    },
                                   ),
                                 ],
                               ),

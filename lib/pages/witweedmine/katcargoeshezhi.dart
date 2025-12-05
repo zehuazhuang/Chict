@@ -1,5 +1,10 @@
 import 'dart:ui';
-
+import 'package:bot_toast/bot_toast.dart';
+import 'package:chict/cuermamaxitmodel.dart';
+import 'package:chict/dicaaneroutes.dart';
+import 'package:chict/pages/witweedmine/chinpantsosedit.dart';
+import 'package:chict/pages/witweedmine/hermanultraldel.dart';
+import 'package:chict/pages/witweedmine/quoverlayinblohei.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -79,314 +84,376 @@ class _KatcarGoeShezhi extends State<KatcarGoeShezhi> {
                         child: Wrap(
                           runSpacing: 20,
                           children: [
-                            Container(
-                              width: double.infinity,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 255, 255, .1),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadiusGeometry.circular(10),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                    sigmaX: 4,
-                                    sigmaY: 4,
+                            GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () {
+                                Get.bottomSheet(ChinpanTsosEdit());
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(255, 255, 255, .1),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 14,
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 4,
+                                      sigmaY: 4,
                                     ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Edit materials",
-                                          style: TextStyle(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 14,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Edit materials",
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w700,
+                                              color: Color.fromRGBO(
+                                                255,
+                                                255,
+                                                255,
+                                                1,
+                                              ),
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.chevron_right_rounded,
                                             color: Color.fromRGBO(
                                               255,
                                               255,
                                               255,
                                               1,
                                             ),
+                                            size: 30,
                                           ),
-                                        ),
-                                        Icon(
-                                          Icons.chevron_right_rounded,
-                                          color: Color.fromRGBO(
-                                            255,
-                                            255,
-                                            255,
-                                            1,
-                                          ),
-                                          size: 30,
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
 
-                            Container(
-                              width: double.infinity,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 255, 255, .1),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadiusGeometry.circular(10),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                    sigmaX: 4,
-                                    sigmaY: 4,
+                            GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () {
+                                Get.to(QuoverlAyinBlohei());
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(255, 255, 255, .1),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 14,
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 4,
+                                      sigmaY: 4,
                                     ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Blacklist",
-                                          style: TextStyle(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 14,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Blacklist",
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w700,
+                                              color: Color.fromRGBO(
+                                                255,
+                                                255,
+                                                255,
+                                                1,
+                                              ),
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.chevron_right_rounded,
                                             color: Color.fromRGBO(
                                               255,
                                               255,
                                               255,
                                               1,
                                             ),
+                                            size: 30,
                                           ),
-                                        ),
-                                        Icon(
-                                          Icons.chevron_right_rounded,
-                                          color: Color.fromRGBO(
-                                            255,
-                                            255,
-                                            255,
-                                            1,
-                                          ),
-                                          size: 30,
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                            Container(
-                              width: double.infinity,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 255, 255, .1),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadiusGeometry.circular(10),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                    sigmaX: 4,
-                                    sigmaY: 4,
+                            GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () {
+                                Get.toNamed(
+                                  ChictRoutes.bowrawVdz,
+                                  arguments:
+                                      "https://app.eidauuwi.link/privacy",
+                                );
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(255, 255, 255, .1),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 14,
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 4,
+                                      sigmaY: 4,
                                     ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Privacy Agreement",
-                                          style: TextStyle(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 14,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Privacy Agreement",
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w700,
+                                              color: Color.fromRGBO(
+                                                255,
+                                                255,
+                                                255,
+                                                1,
+                                              ),
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.chevron_right_rounded,
                                             color: Color.fromRGBO(
                                               255,
                                               255,
                                               255,
                                               1,
                                             ),
+                                            size: 30,
                                           ),
-                                        ),
-                                        Icon(
-                                          Icons.chevron_right_rounded,
-                                          color: Color.fromRGBO(
-                                            255,
-                                            255,
-                                            255,
-                                            1,
-                                          ),
-                                          size: 30,
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                            Container(
-                              width: double.infinity,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 255, 255, .1),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadiusGeometry.circular(10),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                    sigmaX: 4,
-                                    sigmaY: 4,
+                            GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () {
+                                Get.toNamed(
+                                  ChictRoutes.bowrawVdz,
+                                  arguments: "https://app.eidauuwi.link/users",
+                                );
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(255, 255, 255, .1),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 14,
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 4,
+                                      sigmaY: 4,
                                     ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "User Agreement",
-                                          style: TextStyle(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 14,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "User Agreement",
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w700,
+                                              color: Color.fromRGBO(
+                                                255,
+                                                255,
+                                                255,
+                                                1,
+                                              ),
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.chevron_right_rounded,
                                             color: Color.fromRGBO(
                                               255,
                                               255,
                                               255,
                                               1,
                                             ),
+                                            size: 30,
                                           ),
-                                        ),
-                                        Icon(
-                                          Icons.chevron_right_rounded,
-                                          color: Color.fromRGBO(
-                                            255,
-                                            255,
-                                            255,
-                                            1,
-                                          ),
-                                          size: 30,
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                            Container(
-                              width: double.infinity,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 255, 255, .1),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadiusGeometry.circular(10),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                    sigmaX: 4,
-                                    sigmaY: 4,
+                            GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () async {
+                                
+                                Get.dialog(HermanuLtralDel());
+
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(255, 255, 255, .1),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 14,
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 4,
+                                      sigmaY: 4,
                                     ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Delete Account",
-                                          style: TextStyle(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 14,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Delete Account",
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w700,
+                                              color: Color.fromRGBO(
+                                                255,
+                                                255,
+                                                255,
+                                                1,
+                                              ),
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.chevron_right_rounded,
                                             color: Color.fromRGBO(
                                               255,
                                               255,
                                               255,
                                               1,
                                             ),
+                                            size: 30,
                                           ),
-                                        ),
-                                        Icon(
-                                          Icons.chevron_right_rounded,
-                                          color: Color.fromRGBO(
-                                            255,
-                                            255,
-                                            255,
-                                            1,
-                                          ),
-                                          size: 30,
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                            Container(
-                              width: double.infinity,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 255, 255, .1),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadiusGeometry.circular(10),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                    sigmaX: 4,
-                                    sigmaY: 4,
+                            GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () async {
+                                 BotToast.showLoading();
+                                await Future.delayed(const Duration(milliseconds: 700));
+                                BotToast.closeAllLoading();
+                                Get.offAllNamed(ChictRoutes.jumpsuitInit);
+
+                                SkiINECkrt().woHEarloZb = 0;
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(255, 255, 255, .1),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 14,
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 4,
+                                      sigmaY: 4,
                                     ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Log Out",
-                                          style: TextStyle(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 14,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Log Out",
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w700,
+                                              color: Color.fromRGBO(
+                                                255,
+                                                255,
+                                                255,
+                                                1,
+                                              ),
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.chevron_right_rounded,
                                             color: Color.fromRGBO(
                                               255,
                                               255,
                                               255,
                                               1,
                                             ),
+                                            size: 30,
                                           ),
-                                        ),
-                                        Icon(
-                                          Icons.chevron_right_rounded,
-                                          color: Color.fromRGBO(
-                                            255,
-                                            255,
-                                            255,
-                                            1,
-                                          ),
-                                          size: 30,
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),

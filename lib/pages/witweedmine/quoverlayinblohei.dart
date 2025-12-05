@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:chict/cuermamaxitmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,6 +24,9 @@ class _QuoverlAyinBlohei extends State<QuoverlAyinBlohei> {
 
   @override
   Widget build(BuildContext context) {
+    final ruSHblo = SkiINECkrt().tuHOobeUs.firstWhere(
+      (e) => e["usMInieUID"] == SkiINECkrt().ckesKRaprtLid,
+    )["ctohEMpapBOLHEI"];
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
@@ -76,107 +80,151 @@ class _QuoverlAyinBlohei extends State<QuoverlAyinBlohei> {
 
                     Expanded(
                       child: SingleChildScrollView(
-                        child: Wrap(
-                          runSpacing: 20,
-                          children: List.generate(2, (index) {
-                            return Container(
-                              width: double.infinity,
-                              height: 66,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 255, 255, .1),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadiusGeometry.circular(10),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                    sigmaX: 4,
-                                    sigmaY: 4,
+                        child: Builder(
+                          builder: (context) {
+                            final roLIpwblo = SkiINECkrt().tuHOobeUs
+                                .where((e) => ruSHblo.contains(e["usMInieUID"]))
+                                .toList();
+                            return Wrap(
+                              runSpacing: 20,
+                              children: List.generate(roLIpwblo.length, (
+                                index,
+                              ) {
+                                return Container(
+                                  width: double.infinity,
+                                  height: 66,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromRGBO(255, 255, 255, .1),
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 14,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadiusGeometry.circular(
+                                      10,
                                     ),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Color.fromRGBO(
-                                                205,
-                                                150,
-                                                252,
-                                                1,
+                                    child: BackdropFilter(
+                                      filter: ImageFilter.blur(
+                                        sigmaX: 4,
+                                        sigmaY: 4,
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 14,
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  color: Color.fromRGBO(
+                                                    205,
+                                                    150,
+                                                    252,
+                                                    1,
+                                                  ),
+                                                ),
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: PhysicalModel(
+                                                color: Colors.transparent,
+                                                shape: BoxShape.circle,
+                                                clipBehavior: Clip.antiAlias,
+                                                elevation: 1,
+                                                child: Image.asset(
+                                                  roLIpwblo[index]["atiCHiffoAVATAR"],
+                                                  width: 53,
+                                                  height: 53,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             ),
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: PhysicalModel(
-                                            color: Colors.transparent,
-                                            shape: BoxShape.circle,
-                                            clipBehavior: Clip.antiAlias,
-                                            elevation: 1,
-                                            child: Image.asset(
-                                              "assets/images/ChictLogo.png",
-                                              width: 53,
-                                              height: 53,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Text(
-                                            "   Kainin",
-                                            style: TextStyle(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w700,
-                                              color: Color.fromRGBO(
-                                                255,
-                                                255,
-                                                255,
-                                                1,
+                                            Expanded(
+                                              child: Text(
+                                                "   ${roLIpwblo[index]["coaBEltedNAME"]}",
+                                                style: TextStyle(
+                                                  fontFamily: 'Roboto',
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: Color.fromRGBO(
+                                                    255,
+                                                    255,
+                                                    255,
+                                                    1,
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: 79,
-                                          height: 32,
-                                          decoration: BoxDecoration(
-                                            color: Color.fromRGBO(
-                                              245,
-                                              195,
-                                              254,
-                                              1,
-                                            ),
-                                            borderRadius: BorderRadius.circular(
-                                              20,
-                                            ),
-                                          ),
-                                          alignment: Alignment(0, 0),
-                                          child: Text(
-                                            "Revoke",
-                                            style: TextStyle(
-                                              fontFamily: 'Abel',
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color.fromRGBO(
-                                                49,
-                                                16,
-                                                61,
-                                                1,
+                                            GestureDetector(
+                                              behavior:
+                                                  HitTestBehavior.translucent,
+                                              onTap: () {
+                                                int adMAowNCA = SkiINECkrt()
+                                                    .tuHOobeUs
+                                                    .indexWhere(
+                                                      (e) =>
+                                                          e["usMInieUID"] ==
+                                                          SkiINECkrt()
+                                                              .ckesKRaprtLid,
+                                                    );
+
+                                                if (SkiINECkrt()
+                                                    .tuHOobeUs[adMAowNCA]["ctohEMpapBOLHEI"]
+                                                    .contains(
+                                                      roLIpwblo[index]["usMInieUID"],
+                                                    )) {
+                                                  SkiINECkrt()
+                                                      .tuHOobeUs[adMAowNCA]["ctohEMpapBOLHEI"]
+                                                      .remove(
+                                                        roLIpwblo[index]["usMInieUID"],
+                                                      );
+                                                  SkiINECkrt().tuHOobeUs =
+                                                      List.from(
+                                                        SkiINECkrt().tuHOobeUs,
+                                                      );
+                                                }
+
+                                                setState(() {
+                                                  
+                                                });
+                                              },
+                                              child: Container(
+                                                width: 79,
+                                                height: 32,
+                                                decoration: BoxDecoration(
+                                                  color: Color.fromRGBO(
+                                                    245,
+                                                    195,
+                                                    254,
+                                                    1,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                ),
+                                                alignment: Alignment(0, 0),
+                                                child: Text(
+                                                  "Revoke",
+                                                  style: TextStyle(
+                                                    fontFamily: 'Abel',
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w400,
+                                                    color: Color.fromRGBO(
+                                                      49,
+                                                      16,
+                                                      61,
+                                                      1,
+                                                    ),
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
+                                );
+                              }),
                             );
-                          }),
+                          },
                         ),
                       ),
                     ),

@@ -1,14 +1,22 @@
+import 'dart:ui';
+
+import 'package:bot_toast/bot_toast.dart';
+import 'package:chict/cuermamaxitmodel.dart';
+import 'package:chict/pages/witweedmine/tickbintintedblo.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WidtaiLoredeComq extends StatefulWidget {
-  const WidtaiLoredeComq({super.key});
+  const WidtaiLoredeComq({super.key, required this.drAPaedARTID});
+
+  final int drAPaedARTID;
 
   @override
   State<WidtaiLoredeComq> createState() => _WidtaiLoredeComq();
 }
 
 class _WidtaiLoredeComq extends State<WidtaiLoredeComq> {
-  final TextEditingController _betundrargm = TextEditingController();
+  final TextEditingController _clINeneTENT = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -21,39 +29,27 @@ class _WidtaiLoredeComq extends State<WidtaiLoredeComq> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Align(
-        alignment: Alignment(0, 1),
-        child: Container(
-          width: double.infinity,
-          height: 366,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/NXZCUIQM.png"),
-              fit: BoxFit.fill,
-            ),
+    final cuTOfdeMENT = SkiINECkrt().floTWeralMent
+        .where((e) => e["frotwisARTID"] == widget.drAPaedARTID
+        &&!SkiINECkrt().geTERnigpeBLO.contains(e["zeyclinrUID"])
+        )
+        .toList();
+    return Align(
+      alignment: Alignment(0, 1),
+      child: Container(
+        width: double.infinity,
+        height: 366,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/NXZCUIQM.png"),
+            fit: BoxFit.fill,
           ),
-          child: Stack(
-            children: [
-              Transform.translate(
-                offset: Offset(0, -36),
-                child: Align(
-                  alignment: Alignment(0, -1),
-                  child: PhysicalModel(
-                    color: Colors.transparent,
-
-                    clipBehavior: Clip.antiAlias,
-                    elevation: 0,
-                    child: Image.asset(
-                      "assets/images/MXICBQP.png",
-                      width: 91,
-                      height: 91,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
+        ),
+        child: Stack(
+          children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+              child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Flex(
                   direction: Axis.vertical,
@@ -63,7 +59,13 @@ class _WidtaiLoredeComq extends State<WidtaiLoredeComq> {
                         padding: const EdgeInsets.only(top: 50),
                         child: ListView(
                           padding: EdgeInsets.all(0),
-                          children: List.generate(2, (index) {
+                          children: List.generate(cuTOfdeMENT.length, (index) {
+                            final fAZerItem = cuTOfdeMENT[index];
+                            final chORgpUs = SkiINECkrt().tuHOobeUs.firstWhere(
+                              (e) =>
+                                  e["usMInieUID"] ==
+                                  cuTOfdeMENT[index]["zeyclinrUID"],
+                            );
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 24),
                               child: Column(
@@ -90,7 +92,7 @@ class _WidtaiLoredeComq extends State<WidtaiLoredeComq> {
                                           shape: BoxShape.circle,
                                           elevation: 0,
                                           child: Image.asset(
-                                            "assets/images/ChictLogo.png",
+                                            chORgpUs["atiCHiffoAVATAR"],
                                             width: 45,
                                             height: 45,
                                             fit: BoxFit.cover,
@@ -98,13 +100,13 @@ class _WidtaiLoredeComq extends State<WidtaiLoredeComq> {
                                         ),
                                       ),
                                       SizedBox(width: 8),
-                                      Flexible(
+                                      Expanded(
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              "Dustin Grant",
+                                              chORgpUs["coaBEltedNAME"],
                                               style: TextStyle(
                                                 fontFamily: 'Roboto',
                                                 fontSize: 16,
@@ -123,7 +125,7 @@ class _WidtaiLoredeComq extends State<WidtaiLoredeComq> {
                                               ),
                                             ),
                                             Text(
-                                              "Your outfit is just amazing. This video is very practical.",
+                                              fAZerItem["aisthigTENT"],
                                               style: TextStyle(
                                                 fontFamily: 'Abel',
                                                 fontSize: 14,
@@ -139,58 +141,70 @@ class _WidtaiLoredeComq extends State<WidtaiLoredeComq> {
                                           ],
                                         ),
                                       ),
-
-                                      Container(
-                                        width: 40,
-                                        height: 20,
-                                        decoration: BoxDecoration(),
-                                        child: Row(
-                                          children: [
-                                            ClipOval(
-                                              child: Container(
-                                                width: 2.92,
-                                                height: 2.92,
-                                                color: Color.fromRGBO(
-                                                  255,
-                                                  255,
-                                                  255,
-                                                  1,
-                                                ),
+                                      if (SkiINECkrt().ckesKRaprtLid !=
+                                          fAZerItem["zeyclinrUID"])
+                                        GestureDetector(
+                                          behavior: HitTestBehavior.translucent,
+                                          onTap: () {
+                                            Get.dialog(
+                                              TickbiNtintedBlo(
+                                                stAInsUID:
+                                                    fAZerItem["zeyclinrUID"],
                                               ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                    horizontal: 2,
-                                                  ),
-                                              child: ClipOval(
-                                                child: Container(
-                                                  width: 2.92,
-                                                  height: 2.92,
-                                                  color: Color.fromRGBO(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    1,
+                                            );
+                                          },
+                                          child: Container(
+                                            width: 40,
+                                            height: 20,
+                                            decoration: BoxDecoration(),
+                                            child: Row(
+                                              children: [
+                                                ClipOval(
+                                                  child: Container(
+                                                    width: 2.92,
+                                                    height: 2.92,
+                                                    color: Color.fromRGBO(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      1,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ),
-                                            ClipOval(
-                                              child: Container(
-                                                width: 2.92,
-                                                height: 2.92,
-                                                color: Color.fromRGBO(
-                                                  255,
-                                                  255,
-                                                  255,
-                                                  1,
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.symmetric(
+                                                        horizontal: 2,
+                                                      ),
+                                                  child: ClipOval(
+                                                    child: Container(
+                                                      width: 2.92,
+                                                      height: 2.92,
+                                                      color: Color.fromRGBO(
+                                                        255,
+                                                        255,
+                                                        255,
+                                                        1,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
+                                                ClipOval(
+                                                  child: Container(
+                                                    width: 2.92,
+                                                    height: 2.92,
+                                                    color: Color.fromRGBO(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      1,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ],
+                                          ),
                                         ),
-                                      ),
                                     ],
                                   ),
                                   Padding(
@@ -223,7 +237,7 @@ class _WidtaiLoredeComq extends State<WidtaiLoredeComq> {
                             children: [
                               Expanded(
                                 child: TextField(
-                                  controller: _betundrargm,
+                                  controller: _clINeneTENT,
                                   style: const TextStyle(
                                     fontFamily: 'Abel',
                                     fontSize: 16,
@@ -251,15 +265,38 @@ class _WidtaiLoredeComq extends State<WidtaiLoredeComq> {
                                 ),
                               ),
 
-                              PhysicalModel(
-                                color: Colors.transparent,
-                                clipBehavior: Clip.antiAlias,
-                                elevation: 0,
-                                child: Image.asset(
-                                  "assets/images/NCQIUF.png",
-                                  width: 30,
-                                  height: 29,
-                                  fit: BoxFit.cover,
+                              GestureDetector(
+                                behavior: HitTestBehavior.translucent,
+                                onTap: () {
+                                  if (_clINeneTENT.text == "") {
+                                    BotToast.showText(
+                                      text: "Please enter your comment.",
+                                    );
+                                    return;
+                                  }
+
+                                  SkiINECkrt().floTWeralMent.add({
+                                    "frotwisARTID": widget.drAPaedARTID,
+                                    "aisthigTENT": _clINeneTENT.text,
+                                    "zeyclinrUID": SkiINECkrt().ckesKRaprtLid,
+                                  });
+
+                                  SkiINECkrt().floTWeralMent = List.from(
+                                    SkiINECkrt().floTWeralMent,
+                                  );
+                                  _clINeneTENT.clear();
+                                  setState(() {});
+                                },
+                                child: PhysicalModel(
+                                  color: Colors.transparent,
+                                  clipBehavior: Clip.antiAlias,
+                                  elevation: 0,
+                                  child: Image.asset(
+                                    "assets/images/NCQIUF.png",
+                                    width: 30,
+                                    height: 29,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ],
@@ -270,8 +307,26 @@ class _WidtaiLoredeComq extends State<WidtaiLoredeComq> {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+            Transform.translate(
+              offset: Offset(0, -36),
+              child: Align(
+                alignment: Alignment(0, -1),
+                child: PhysicalModel(
+                  color: Colors.transparent,
+
+                  clipBehavior: Clip.antiAlias,
+                  elevation: 0,
+                  child: Image.asset(
+                    "assets/images/MXICBQP.png",
+                    width: 91,
+                    height: 91,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,7 +1,12 @@
 import 'dart:math' as math;
 
+import 'package:bot_toast/bot_toast.dart';
+import 'package:chict/cuermamaxitmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class CkechunKytChuan extends StatefulWidget {
   const CkechunKytChuan({super.key});
@@ -13,6 +18,10 @@ class CkechunKytChuan extends StatefulWidget {
 class _CkechunKytChuan extends State<CkechunKytChuan> {
   final TextEditingController _illUonTitle = TextEditingController();
   final TextEditingController _pantsRecor = TextEditingController();
+
+  String? kSEenitPICT;
+
+  String? eweATerdVD;
   @override
   void initState() {
     super.initState();
@@ -180,111 +189,182 @@ class _CkechunKytChuan extends State<CkechunKytChuan> {
                         ),
                       ),
                       Padding(padding: EdgeInsetsGeometry.only(bottom: 20)),
-                      Container(
-                        width: 104,
-                        height: 135,
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(255, 255, 255, .1),
-                          border: Border.all(
-                            color: Color.fromRGBO(245, 195, 254, 1),
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            PhysicalModel(
-                              color: Colors.transparent,
-                              clipBehavior: Clip.antiAlias,
-                              elevation: 0,
-                              child: Image.asset(
-                                "assets/images/NSCIUQWJ.png",
-                                width: 22,
-                                height: 22,
-                                fit: BoxFit.cover,
-                              ),
+
+                      GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () async {
+                          if (await Permission.photos.request().isGranted) {
+                            final ImagePicker rdURoyPIC = ImagePicker();
+                            final XFile? ouLVetrVd = await rdURoyPIC.pickVideo(
+                              source: ImageSource.gallery,
+                            );
+
+                            if (ouLVetrVd != null) {
+                              MethodChannel rtvPAkIe = MethodChannel(
+                                "video_thumbnail",
+                              );
+                              kSEenitPICT = await rtvPAkIe.invokeMethod(
+                                "getFirstFrameFile",
+                                ouLVetrVd.path,
+                              );
+                              if (kSEenitPICT != null) {
+                                eweATerdVD = ouLVetrVd.path;
+                                setState(() {});
+                              }
+                            }
+                          }
+                        },
+                        child: Container(
+                          width: 104,
+                          height: 135,
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(255, 255, 255, .1),
+                            border: Border.all(
+                              color: Color.fromRGBO(245, 195, 254, 1),
                             ),
-                          ],
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              PhysicalModel(
+                                color: Colors.transparent,
+                                clipBehavior: Clip.antiAlias,
+                                elevation: 0,
+                                child: Image.asset(
+                                  "assets/images/NSCIUQWJ.png",
+                                  width: 22,
+                                  height: 22,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              if (kSEenitPICT != null)
+                                ClipRRect(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    18,
+                                  ),
+                                  child: Image.asset(
+                                    kSEenitPICT!,
+                                    fit: BoxFit.cover,
+                                    width: 104,
+                                    height: 135,
+                                  ),
+                                ),
+                            ],
+                          ),
                         ),
                       ),
                       Padding(padding: EdgeInsetsGeometry.only(top: 25)),
                       Align(
                         alignment: AlignmentDirectional(0, 0),
-                        child: Container(
-                          width: 201,
-                          height: 63,
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(205, 150, 252, 1),
-                            borderRadius: BorderRadius.circular(40),
-                            border: Border.all(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              width: 4,
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color.fromRGBO(113, 81, 140, 1),
-                                spreadRadius: 0,
-                                blurRadius: 0,
-                                offset: Offset(0, 3),
-                              ),
-                            ],
-                          ),
-                          alignment: Alignment.center,
+                        child: GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () {
+                            if (_illUonTitle.text == "" ||
+                                _pantsRecor.text == "" ||
+                                kSEenitPICT == null) {
+                              BotToast.showText(
+                                text:
+                                    "The title, content, and video cannot be empty.",
+                              );
+                              return;
+                            }
+
+                            SkiINECkrt().btUXedoeArt.add({
+                              "bdENiohARTID":
+                                  SkiINECkrt().btUXedoeArt.length + 1,
+                              "tbrOIdecTITLE": _illUonTitle.text,
+                              "weSTernTENT": _pantsRecor.text,
+                              "raCKeteTU": kSEenitPICT,
+                              "boSEoingVID": eweATerdVD,
+                              "maHWordUID": SkiINECkrt().ckesKRaprtLid,
+                              "boCUtkpHOT": [],
+                            });
+
+                            SkiINECkrt().btUXedoeArt = List.from(
+                              SkiINECkrt().btUXedoeArt,
+                            );
+
+                            Get.back();
+
+                            BotToast.showText(text: "Published!");
+                          },
                           child: Container(
-                            width: 170,
-                            height: 39,
+                            width: 201,
+                            height: 63,
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromRGBO(255, 255, 255, .2),
-                                  Color.fromRGBO(255, 255, 255, 0),
-                                ],
-                                begin: Alignment(0, -1),
-                                end: Alignment(0, 1),
+                              color: Color.fromRGBO(205, 150, 252, 1),
+                              borderRadius: BorderRadius.circular(40),
+                              border: Border.all(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                width: 4,
                               ),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            alignment: Alignment.center,
-                            child: Stack(
-                              children: [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Image(
-                                    image: AssetImage(
-                                      "assets/images/ZXCWQUH.png",
-                                    ),
-                                    width: 24.81,
-                                    height: 16.38,
-                                  ),
-                                ),
-
-                                Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: Transform.rotate(
-                                    angle: -26.95 * (math.pi / 180),
-                                    child: Image(
-                                      image: AssetImage(
-                                        "assets/images/XZNCUIW.png",
-                                      ),
-                                      width: 21.1,
-                                      height: 5.49,
-                                    ),
-                                  ),
-                                ),
-
-                                Align(
-                                  alignment: AlignmentDirectional(0, 0),
-                                  child: Text(
-                                    "Upload",
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w700,
-                                      color: Color.fromRGBO(255, 255, 255, 1),
-                                    ),
-                                  ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromRGBO(113, 81, 140, 1),
+                                  spreadRadius: 0,
+                                  blurRadius: 0,
+                                  offset: Offset(0, 3),
                                 ),
                               ],
+                            ),
+                            alignment: Alignment.center,
+                            child: Container(
+                              width: 170,
+                              height: 39,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color.fromRGBO(255, 255, 255, .2),
+                                    Color.fromRGBO(255, 255, 255, 0),
+                                  ],
+                                  begin: Alignment(0, -1),
+                                  end: Alignment(0, 1),
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              alignment: Alignment.center,
+                              child: Stack(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Image(
+                                      image: AssetImage(
+                                        "assets/images/ZXCWQUH.png",
+                                      ),
+                                      width: 24.81,
+                                      height: 16.38,
+                                    ),
+                                  ),
+
+                                  Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: Transform.rotate(
+                                      angle: -26.95 * (math.pi / 180),
+                                      child: Image(
+                                        image: AssetImage(
+                                          "assets/images/XZNCUIW.png",
+                                        ),
+                                        width: 21.1,
+                                        height: 5.49,
+                                      ),
+                                    ),
+                                  ),
+
+                                  Align(
+                                    alignment: AlignmentDirectional(0, 0),
+                                    child: Text(
+                                      "Upload",
+                                      style: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w700,
+                                        color: Color.fromRGBO(255, 255, 255, 1),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
