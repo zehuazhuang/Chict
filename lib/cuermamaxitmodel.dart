@@ -213,7 +213,7 @@ class SkiINECkrt extends ChangeNotifier {
           "The weather was slightly cool after the rain.  I wore a thin knitted sweater.  The fabric was soft and breathable, very comfortable.",
       "apARkatPICTURE": "assets/images/YCNBQB1.png",
       "jeSTretcrUID": 4,
-      "pleiereaDATE": "2025-12-02",
+      "pleiereaDATE": "2026-03-22",
     },
     {
       "mdufleaCDID": 2,
@@ -438,8 +438,16 @@ class SkiINECkrt extends ChangeNotifier {
   ];
 
   static const List<String> anCHunkyList = [
-    "lvbsvhxcgcrvesor",
-    "dxismgcwewhrtezo",
+    "wzacdvhhgjwgtvau",
+    "jbkyjlzujstvwthd",
+    "yifawvujgksckhmy",
+    "etpqhiuvztocnyok",
+    "vanysvqruovtwess",
+    "bihailobatdkuznq",
+    "cobyyvdunovvwars",
+    "njjqqhaspucfxufq",
+    "taysyvdxjovvwops",
+    "caysyvdujovvwoss",
   ];
 
   List<dynamic> _ftsOATogCInfo = [
@@ -449,7 +457,7 @@ class SkiINECkrt extends ChangeNotifier {
       "goXEAeqLAST": "Hello!",
       "reTINndCOUNT": 1,
       "epMETgiLastUID": 3,
-      "crOSMicTIME": "12-03",
+      "crOSMicTIME": "03-21",
     },
   ];
   List<dynamic> get ftsOATogCInfo => _ftsOATogCInfo;
