@@ -1,7 +1,7 @@
 name: chict
 description: "A new Flutter project."
-publish_to: 'none'
-version: 1.0.0+1
+publish_to: "none"
+version: 1.0.0+2
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -35,8 +35,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  
-
 
 flutter_launcher_icons:
   android: truedevicelocale
@@ -46,7 +44,7 @@ flutter_launcher_icons:
     generate: true
   image_path: "assets/images/ChictLogo.png"
 
-flutter_native_splash: 
+flutter_native_splash:
   background_image: "assets/images/ZXNJCUIQWQ.png"
 
 flutter:
@@ -56,7 +54,6 @@ flutter:
     - assets/images/
     - assets/fonts/
     - assets/video/
-
 
   fonts:
     - family: Roboto
