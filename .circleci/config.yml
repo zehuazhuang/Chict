@@ -6,7 +6,7 @@ orbs:
 jobs:
   build-flutter-ios:
     macos:
-      xcode: "16.3" # 你本机的xcode版本
+      xcode: "16.3"
     resource_class: m4pro.medium
     steps:
       - checkout
@@ -38,7 +38,7 @@ jobs:
 
       - flutter/install_sdk_and_pub:
           channel: stable
-          version: 3.32.6 # 你本机的flutter版本
+          version: 3.32.6
 
       - run:
           name: Flutter Build
@@ -61,4 +61,4 @@ workflows:
           filters:
             branches:
               only:
-                - master # 你要打包的分支名字
+                - pre
