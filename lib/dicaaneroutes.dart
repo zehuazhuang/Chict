@@ -1,3 +1,5 @@
+import 'package:chict/pages/bodysuitinit/ckcontrastet.dart';
+import 'package:chict/pages/bodysuitinit/dekskirtnitnifir.dart';
 import 'package:chict/pages/bodysuitinit/phosversizeiv.dart';
 import 'package:chict/pages/bodysuitinit/shirtwaistlog.dart';
 import 'package:chict/pages/bodysuitinit/shoulderfor.dart';
@@ -15,6 +17,7 @@ import 'package:chict/pages/joggersmes/deasymmetrilist.dart';
 import 'package:chict/pages/joggersmes/distressedai.dart';
 import 'package:chict/pages/joggersmes/mirihighsedinfo.dart';
 import 'package:chict/pages/joggersmes/niccardiganaiout.dart';
+import 'package:chict/pages/joggersmes/pantrousersts.dart';
 
 import 'package:chict/pages/witweedmine/hicablertziji.dart';
 import 'package:chict/pages/witweedmine/katcargoeshezhi.dart';
@@ -44,14 +47,17 @@ abstract class ChictRoutes {
   static const pfittedeShizhi = '/pfittedeShizhi';
   static const egculotBlohei = '/egculotBlohei';
   static const bowrawVdz = '/bowrawVdz';
+  static const pantrOusersts = '/pantrOusersts';
+  static const dekskiRtnitniFir = '/dekskiRtnitniFir';
+  static const ckconTrastet = '/ckconTrastet';
 }
 
 class ChictAppRoutes {
   ChictAppRoutes._();
 
-  static const initial =  ChictRoutes.jumpsuitInit;
+  static const initial = ChictRoutes.dekskiRtnitniFir;
 
-  static const eanshome =  ChictRoutes.tovestpHome;
+  static const eanshome = ChictRoutes.tovestpHome;
 
   static final routes = <GetPage>[
     //
@@ -107,7 +113,9 @@ class ChictAppRoutes {
     ),
     GetPage(
       name: ChictRoutes.ntsatinsAiout,
-      page: () =>  NiccarDiganAiout(ribweNCWJ: Get.arguments,),
+      page: () => NiccarDiganAiout(
+        ribweNCWJ: Get.arguments,
+      ),
       transition: Transition.rightToLeft,
     ),
     GetPage(
@@ -117,7 +125,9 @@ class ChictAppRoutes {
     ),
     GetPage(
       name: ChictRoutes.zifrontpKan,
-      page: () =>  ShirhAltertKan(cgLEoatJi: Get.arguments,),
+      page: () => ShirhAltertKan(
+        cgLEoatJi: Get.arguments,
+      ),
       transition: Transition.rightToLeft,
     ),
     GetPage(
@@ -127,7 +137,9 @@ class ChictAppRoutes {
     ),
     GetPage(
       name: ChictRoutes.jacketdeInfo,
-      page: () =>  MirihigHsedInfo(chEROntRESU: Get.arguments,),
+      page: () => MirihigHsedInfo(
+        chEROntRESU: Get.arguments,
+      ),
       transition: Transition.rightToLeft,
     ),
     GetPage(
@@ -135,18 +147,18 @@ class ChictAppRoutes {
       page: () => const DeasymMetriList(),
       transition: Transition.rightToLeft,
     ),
-GetPage(
-  name: ChictRoutes.apuffertZiji,
-  page: () {
-    final args = Get.arguments as Map<String, dynamic>;
+    GetPage(
+      name: ChictRoutes.apuffertZiji,
+      page: () {
+        final args = Get.arguments as Map<String, dynamic>;
 
-    return HicabLertZiji(
-      dbREakeUID: args["dbREakeUID"],
-      gkIRtsIs: args["gkIRtsIs"],
-    );
-  },
-  transition: Transition.rightToLeft,
-),
+        return HicabLertZiji(
+          dbREakeUID: args["dbREakeUID"],
+          gkIRtsIs: args["gkIRtsIs"],
+        );
+      },
+      transition: Transition.rightToLeft,
+    ),
     GetPage(
       name: ChictRoutes.pfittedeShizhi,
       page: () => const KatcarGoeShezhi(),
@@ -160,6 +172,23 @@ GetPage(
     GetPage(
       name: ChictRoutes.bowrawVdz,
       page: () => PhosveRsizeIv(tcodyhVdz: Get.arguments),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: ChictRoutes.pantrOusersts,
+      page: () => PantrOusersts(
+        shtQASDWrUs: Get.arguments,
+      ),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: ChictRoutes.dekskiRtnitniFir,
+      page: () => const DekskiRtnitniFir(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: ChictRoutes.ckconTrastet,
+      page: () => const CkconTrastet(),
       transition: Transition.rightToLeft,
     ),
   ];

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bot_toast/bot_toast.dart';
 import 'package:chict/cuermamaxitmodel.dart';
+import 'package:chict/dicaaneroutes.dart';
 import 'package:chict/pages/witweedmine/tickbintintedblo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -63,12 +64,11 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
     });
 
     int rOBInDEX = SkiINECkrt().ftsOATogCInfo.indexWhere(
-      (e) => e["gpANSivyCINFOID"] == widget.chEROntRESU[0],
-    );
+          (e) => e["gpANSivyCINFOID"] == widget.chEROntRESU[0],
+        );
 
-    SkiINECkrt().ftsOATogCInfo[rOBInDEX]["goXEAeqLAST"] = reOPdTEXT != ""
-        ? reOPdTEXT
-        : "[voice]";
+    SkiINECkrt().ftsOATogCInfo[rOBInDEX]["goXEAeqLAST"] =
+        reOPdTEXT != "" ? reOPdTEXT : "[voice]";
     SkiINECkrt().ftsOATogCInfo[rOBInDEX]["reTINndCOUNT"] += 1;
     SkiINECkrt().ftsOATogCInfo[rOBInDEX]["epMETgiLastUID"] =
         SkiINECkrt().ckesKRaprtLid;
@@ -126,7 +126,6 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                             ),
                           ),
                         ),
-
                         Padding(
                           padding: const EdgeInsets.only(left: 15, right: 10),
                           child: Container(
@@ -151,23 +150,41 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                             ),
                           ),
                         ),
-
-                        Text(
-                          widget.chEROntRESU[1]["coaBEltedNAME"],
-                          style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            color: Color.fromRGBO(255, 255, 255, 1),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 18),
+                          child: Text(
+                            widget.chEROntRESU[1]["coaBEltedNAME"],
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                            ),
                           ),
                         ),
-
+                        GestureDetector(
+                            behavior: HitTestBehavior.translucent,
+                            onTap: () {
+                             
+                              Get.toNamed(
+                                ChictRoutes.pantrOusersts,
+                                arguments: [
+                                  widget.chEROntRESU[1],
+                                ],
+                              );
+                            },
+                            child: Icon(
+                              Icons.videocam,
+                              color: Colors.white,
+                              size: 36,
+                            )),
                         Spacer(),
-                        
                         GestureDetector(
                           behavior: HitTestBehavior.translucent,
                           onTap: () {
-                            Get.dialog(TickbiNtintedBlo(stAInsUID: widget.chEROntRESU[1]["usMInieUID"],));
+                            Get.dialog(TickbiNtintedBlo(
+                              stAInsUID: widget.chEROntRESU[1]["usMInieUID"],
+                            ));
                           },
                           child: Container(
                             width: 49,
@@ -213,7 +230,6 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                     ),
                   ),
                   Padding(padding: EdgeInsetsGeometry.only(top: 23)),
-
                   Expanded(
                     child: Container(
                       width: double.infinity,
@@ -230,7 +246,8 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                           Expanded(
                             child: Builder(
                               builder: (context) {
-                                final caOFPufLIST = SkiINECkrt().psUITeankMES
+                                final caOFPufLIST = SkiINECkrt()
+                                    .psUITeankMES
                                     .where(
                                       (e) =>
                                           e["abBOUcleCIID"] ==
@@ -267,20 +284,21 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                                                       BorderRadius.circular(10),
                                                 ),
                                                 child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                        horizontal: 16,
-                                                        vertical: 10,
-                                                      ),
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                    horizontal: 16,
+                                                    vertical: 10,
+                                                  ),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.min,
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsets.only(
-                                                              right: 5,
-                                                            ),
+                                                            const EdgeInsets
+                                                                .only(
+                                                          right: 5,
+                                                        ),
                                                         child: Image(
                                                           image: AssetImage(
                                                             "assets/images/QIWUNDSAIT.png",
@@ -290,7 +308,8 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                                                         ),
                                                       ),
                                                       Text(
-                                                        peVEdwITEM["ekmnitdrLONG"],
+                                                        peVEdwITEM[
+                                                            "ekmnitdrLONG"],
                                                         style: TextStyle(
                                                           fontFamily: 'Abel',
                                                           fontSize: 18,
@@ -311,8 +330,8 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                                               Padding(
                                                 padding:
                                                     EdgeInsetsGeometry.only(
-                                                      top: 5,
-                                                    ),
+                                                  top: 5,
+                                                ),
                                               ),
                                               Text(
                                                 peVEdwITEM["irTCAerocTIME"],
@@ -357,9 +376,9 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                                               child: Padding(
                                                 padding:
                                                     const EdgeInsets.symmetric(
-                                                      horizontal: 16,
-                                                      vertical: 10,
-                                                    ),
+                                                  horizontal: 16,
+                                                  vertical: 10,
+                                                ),
                                                 child: Text(
                                                   peVEdwITEM["dbROIdereTENT"],
                                                   style: TextStyle(
@@ -423,9 +442,9 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                                             child: Padding(
                                               padding:
                                                   const EdgeInsets.symmetric(
-                                                    horizontal: 16,
-                                                    vertical: 10,
-                                                  ),
+                                                horizontal: 16,
+                                                vertical: 10,
+                                              ),
                                               child: Text(
                                                 peVEdwITEM["dbROIdereTENT"],
                                                 style: TextStyle(
@@ -469,7 +488,6 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                               },
                             ),
                           ),
-
                           Padding(
                             padding: const EdgeInsets.only(
                               left: 20,
@@ -576,7 +594,6 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                                             ),
                                           ),
                                         ),
-
                                         Align(
                                           alignment: Alignment(0, -0.5),
                                           child: GestureDetector(
@@ -643,23 +660,20 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
 
                                                 alRSencLJ = roLAshwRec;
 
+                                                await asMERinohAD("", [
+                                                  "${poNDflWS}s",
+                                                  alRSencLJ,
+                                                ]);
 
-                                                            await asMERinohAD("", [
-                                                        "${poNDflWS}s",
-                                                        alRSencLJ,
-                                                      ]);
-
-                                                               alRSencLJ=null;
-                                                      _kiDUotSec =0;
+                                                alRSencLJ = null;
+                                                _kiDUotSec = 0;
                                               }
-
-
-                                             
 
                                               setState(() {});
                                             },
                                             child: geLINerl
-                                                ? LoadingAnimationWidget.staggeredDotsWave(
+                                                ? LoadingAnimationWidget
+                                                    .staggeredDotsWave(
                                                     color: Colors.white,
                                                     size: 60,
                                                   )
@@ -752,16 +766,15 @@ class _MirihigHsedInfo extends State<MirihigHsedInfo> {
                                               ),
                                               contentPadding:
                                                   const EdgeInsets.symmetric(
-                                                    horizontal: 15,
-                                                    vertical: 13,
-                                                  ),
+                                                horizontal: 15,
+                                                vertical: 13,
+                                              ),
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
                                               ),
                                             ),
                                           ),
                                         ),
-
                                         GestureDetector(
                                           behavior: HitTestBehavior.translucent,
                                           onTap: () async {

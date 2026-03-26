@@ -1,3 +1,4 @@
+import 'package:chict/pages/bodysuitinit/btsckjacketet.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -21,8 +22,7 @@ class SkiINECkrt extends ChangeNotifier {
   Future aslACksreInit() async {
     prefs = await SharedPreferences.getInstance();
     _safeInit(() {
-      _tuHOobeUs =
-          prefs.getStringList('ff_tuHOobeUs')?.map((x) {
+      _tuHOobeUs = prefs.getStringList('ff_tuHOobeUs')?.map((x) {
             try {
               return jsonDecode(x);
             } catch (e) {
@@ -37,8 +37,7 @@ class SkiINECkrt extends ChangeNotifier {
     });
 
     _safeInit(() {
-      _plEAtedChuand =
-          prefs.getStringList('ff_plEAtedChuand')?.map((x) {
+      _plEAtedChuand = prefs.getStringList('ff_plEAtedChuand')?.map((x) {
             try {
               return jsonDecode(x);
             } catch (e) {
@@ -49,8 +48,7 @@ class SkiINECkrt extends ChangeNotifier {
     });
 
     _safeInit(() {
-      _btUXedoeArt =
-          prefs.getStringList('ff_btUXedoeArt')?.map((x) {
+      _btUXedoeArt = prefs.getStringList('ff_btUXedoeArt')?.map((x) {
             try {
               return jsonDecode(x);
             } catch (e) {
@@ -61,8 +59,7 @@ class SkiINECkrt extends ChangeNotifier {
     });
 
     _safeInit(() {
-      _floTWeralMent =
-          prefs.getStringList('ff_floTWeralMent')?.map((x) {
+      _floTWeralMent = prefs.getStringList('ff_floTWeralMent')?.map((x) {
             try {
               return jsonDecode(x);
             } catch (e) {
@@ -73,8 +70,7 @@ class SkiINECkrt extends ChangeNotifier {
     });
 
     _safeInit(() {
-      _ftsOATogCInfo =
-          prefs.getStringList('ff_ftsOATogCInfo')?.map((x) {
+      _ftsOATogCInfo = prefs.getStringList('ff_ftsOATogCInfo')?.map((x) {
             try {
               return jsonDecode(x);
             } catch (e) {
@@ -83,10 +79,9 @@ class SkiINECkrt extends ChangeNotifier {
           }).toList() ??
           _ftsOATogCInfo;
     });
-    
-     _safeInit(() {
-      _psUITeankMES =
-          prefs.getStringList('ff_psUITeankMES')?.map((x) {
+
+    _safeInit(() {
+      _psUITeankMES = prefs.getStringList('ff_psUITeankMES')?.map((x) {
             try {
               return jsonDecode(x);
             } catch (e) {
@@ -95,10 +90,12 @@ class SkiINECkrt extends ChangeNotifier {
           }).toList() ??
           _psUITeankMES;
     });
-  _safeInit(() {
+    _safeInit(() {
       _coYSIshCID = prefs.getInt('ff_coYSIshCID') ?? _coYSIshCID;
     });
-    
+    _safeInit(() {
+      _iovariationn = prefs.getString('ff_iovariationn') ?? _iovariationn;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -175,7 +172,7 @@ class SkiINECkrt extends ChangeNotifier {
       "soorGAnzftFANS": [],
       "ctohEMpapBOLHEI": [],
     },
-     {
+    {
       "usMInieUID": 7,
       "sweDRsatEMAIL": "",
       "fsqUAreurPASW": "",
@@ -379,7 +376,7 @@ class SkiINECkrt extends ChangeNotifier {
       "poANdalCOUNT": 400,
       "ocOLlarpMEI": 0.99,
       "rsaTInuIS": true,
-      "leMEshyJIAN": "grdsvdsfnueposjfw",
+      "leMEshyJIAN": "lvbsvhxcgcrvesor", //grdsvdsfnueposjfw
     },
     {
       "poANdalCOUNT": 800,
@@ -391,7 +388,7 @@ class SkiINECkrt extends ChangeNotifier {
       "poANdalCOUNT": 2450,
       "ocOLlarpMEI": 4.99,
       "rsaTInuIS": true,
-      "leMEshyJIAN": "cbuolfdsbhfewo",
+      "leMEshyJIAN": "dxismgcwewhrtezo", //cbuolfdsbhfewo
     },
     {
       "poANdalCOUNT": 4900,
@@ -438,9 +435,9 @@ class SkiINECkrt extends ChangeNotifier {
   ];
 
   static const List<String> anCHunkyList = [
-    "grdsvdsfnueposjfw",
+    "lvbsvhxcgcrvesor", //grdsvdsfnueposjfw
     "cbuolaheyfvewil",
-    "cbuolfdsbhfewo",
+    "dxismgcwewhrtezo", //cbuolfdsbhfewo
     "vxywoakfviyosas",
     "qertnsvwluopzmax",
     "xdbdwisilasdf",
@@ -469,14 +466,14 @@ class SkiINECkrt extends ChangeNotifier {
     );
   }
 
-    List<dynamic> _psUITeankMES = [
+  List<dynamic> _psUITeankMES = [
     {
       "abBOUcleCIID": 1,
-      "dbROIdereTENT":"Hello!",
-      "loCHEtpUID":3,
-      "ekmnitdrLONG":"",
-      "suLTEditRECU":"",
-      "irTCAerocTIME":"08:06 AM",
+      "dbROIdereTENT": "Hello!",
+      "loCHEtpUID": 3,
+      "ekmnitdrLONG": "",
+      "suLTEditRECU": "",
+      "irTCAerocTIME": "08:06 AM",
     },
   ];
   List<dynamic> get psUITeankMES => _psUITeankMES;
@@ -488,33 +485,59 @@ class SkiINECkrt extends ChangeNotifier {
     );
   }
 
-
-    int _coYSIshCID = 8;
+  int _coYSIshCID = 8;
   int get coYSIshCID => _coYSIshCID;
   set coYSIshCID(int value) {
     _coYSIshCID = value;
     prefs.setInt('ff_coYSIshCID', value);
   }
 
-    dynamic get geTERnigpeBLO{
-    return _tuHOobeUs.firstWhere((e)=>e["usMInieUID"]==ckesKRaprtLid)["ctohEMpapBOLHEI"];
+  String _iovariationn = "";
+  String get iovariationn => _iovariationn;
+  set iovariationn(String value) {
+    _iovariationn = value;
+    prefs.setString('ff_iovariationn', value);
   }
 
-  Future<void>  upflCURleratD(int siNTicARTID) async{
-      int teBAgdex = _btUXedoeArt.indexWhere((e)=>e["bdENiohARTID"]==siNTicARTID);
+  dynamic get geTERnigpeBLO {
+    return _tuHOobeUs
+        .firstWhere((e) => e["usMInieUID"] == ckesKRaprtLid)["ctohEMpapBOLHEI"];
+  }
 
-      if(_btUXedoeArt[teBAgdex]["boCUtkpHOT"].contains(ckesKRaprtLid)){
-        _btUXedoeArt[teBAgdex]["boCUtkpHOT"].remove(ckesKRaprtLid);
-      }else{
-        _btUXedoeArt[teBAgdex]["boCUtkpHOT"].add(ckesKRaprtLid);
-      }
+  Future<void> upflCURleratD(int siNTicARTID) async {
+    int teBAgdex =
+        _btUXedoeArt.indexWhere((e) => e["bdENiohARTID"] == siNTicARTID);
 
-      btUXedoeArt = List.from(btUXedoeArt);
-  } 
+    if (_btUXedoeArt[teBAgdex]["boCUtkpHOT"].contains(ckesKRaprtLid)) {
+      _btUXedoeArt[teBAgdex]["boCUtkpHOT"].remove(ckesKRaprtLid);
+    } else {
+      _btUXedoeArt[teBAgdex]["boCUtkpHOT"].add(ckesKRaprtLid);
+    }
+
+    btUXedoeArt = List.from(btUXedoeArt);
+  }
+
+  List<ZQoeHTGwz> c3gSAuKFiy5e = [
+    ZQoeHTGwz(cXg9XUGe: 'mHMfI2FuMb/7XY9zbiEFkw=='.zX7pQ8kL(), cJHjNOUZj3a: 'H/4AUVd0T+4pffdAoGC6lw=='.zX7pQ8kL()),
+    ZQoeHTGwz(cXg9XUGe: 'RBiavRvCUf1wDHW5seUnMA=='.zX7pQ8kL(), cJHjNOUZj3a: 'gaRvDAmMcRI0FJqkGIa00g=='.zX7pQ8kL()),
+    ZQoeHTGwz(cXg9XUGe: 'Hqo8zJ1/OFEyVp1qWLIh7w=='.zX7pQ8kL(), cJHjNOUZj3a: 'FZVTgGvprxlGzxheqpgK0g=='.zX7pQ8kL()),
+    ZQoeHTGwz(cXg9XUGe: 'N0bBh6ztZI5leowwOzNTrQ=='.zX7pQ8kL(), cJHjNOUZj3a: 'swlL26kCZWhn+v6ItuaOlg=='.zX7pQ8kL()),
+    ZQoeHTGwz(cXg9XUGe: '3QpGvt0YFykAIsU3XtyWDA=='.zX7pQ8kL(), cJHjNOUZj3a: '5O+e87b0gDZAKveMfWhVtA=='.zX7pQ8kL()),
+    ZQoeHTGwz(cXg9XUGe: 'ZuDqpotrYP1R6cvbJgGWcg=='.zX7pQ8kL(), cJHjNOUZj3a: 'JxACAN8UHaFCjUR2wJ2NMA=='.zX7pQ8kL()),
+    ZQoeHTGwz(cXg9XUGe: 'BmLYr9ZKs2cjltLN0QmS+w=='.zX7pQ8kL(), cJHjNOUZj3a: 'ZN3Gb7IXf+IwVWQbRQwYuQ=='.zX7pQ8kL()),
+    ZQoeHTGwz(cXg9XUGe: 'x/DC5Kf1R4J46FH4McrcdQ=='.zX7pQ8kL(), cJHjNOUZj3a: 'dl/n9ZshvRCElW1xOx8kcw=='.zX7pQ8kL()),
+    ZQoeHTGwz(cXg9XUGe: 'o4T6SoGAOX3S36TQllCE7A=='.zX7pQ8kL(), cJHjNOUZj3a: 'AjFY6ZfzSxyQ6ot8a3Ir4Q=='.zX7pQ8kL()),
+  ];
 }
 
 void _safeInit(Function() initializeField) {
   try {
     initializeField();
   } catch (_) {}
+}
+
+class ZQoeHTGwz {
+  final String cXg9XUGe;
+  final String cJHjNOUZj3a;
+  ZQoeHTGwz({required this.cXg9XUGe, required this.cJHjNOUZj3a});
 }

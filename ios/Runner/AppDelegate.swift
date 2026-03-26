@@ -1,6 +1,7 @@
 import Flutter
 import UIKit
 import AVFoundation
+import flutter_local_notifications
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
@@ -9,6 +10,29 @@ import AVFoundation
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
+
+   if #available(iOS 10.0, *) {
+      UNUserNotificationCenter.current().delegate = self as UNUserNotificationCenterDelegate
+    }
+
+        FlutterLocalNotificationsPlugin.setPluginRegistrantCallback { (registry) in
+        GeneratedPluginRegistrant.register(with: registry)
+    }
+
+          if #available(iOS 10.0, *) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            if granted {
+                application.registerForRemoteNotifications()
+            } else {
+            }
+        }
+    } else {
+        let shesweatera = UIUserNotificationSettings(types: [.alert, .sound, .badge], categories: nil)
+        application.registerUserNotificationSettings(shesweatera)
+        application.registerForRemoteNotifications()
+    }
+
+    
     
     let serenityRootChannelHost = window?.rootViewController as! FlutterViewController
     
@@ -40,6 +64,21 @@ import AVFoundation
     
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+
+      override func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    let  jsuitacket = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+    
+
+    guard let dosilkuble = window?.rootViewController as? FlutterViewController else {
+      return
+    }
+
+
+    let lomocknecn = FlutterMethodChannel(name: "kaantdreset", binaryMessenger: dosilkuble.binaryMessenger)
+    
+
+    lomocknecn.invokeMethod("ouseautilitntsrs", arguments:  jsuitacket)
   }
 }
 
