@@ -75,7 +75,12 @@
 		<string>This app needs to access your microphone for recording so that you can have a voice chat. We will only use or access the content you have recorded with your explicit permission.</string>
 		<key>NSPhotoLibraryUsageDescription</key>
 		<string>This app needs to access the pictures or videos in your album so that you can select the ones you want to upload and share. All selected files will be used only for the purposes you have approved and will be securely stored on your device or shared only with your consent.</string>
-		
+		<key>UIRequiredDeviceCapabilities</key>
+<dict>
+    <key>arm64</key>
+    <true/> 
+
+</dict>
 		<key>UILaunchStoryboardName</key>
 		<string>LaunchScreen</string>
 		<key>UIMainStoryboardFile</key>
